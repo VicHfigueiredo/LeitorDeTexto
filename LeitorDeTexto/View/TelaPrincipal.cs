@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace LeitorDeTexto.View
+{
+    public partial class TelaPrincipal : Form
+    {
+        public TelaPrincipal()
+        {
+            InitializeComponent();
+        }
+        private void leitorTexto()
+        {
+            lbxInfo.Items.Clear();
+            string endereco = @"C:\teste123.txt";
+
+            try
+            {
+                if (!System.IO.File.Exists(endereco))
+                {
+                    throw new Exception(
+                        "O arquivo teste123 não foi localizado."
+                        );
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void btxLer_Click(object sender, EventArgs e)
+        {
+            leitorTexto();
+        }
+    }
+}
